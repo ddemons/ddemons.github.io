@@ -3,6 +3,7 @@ app.component('starWarsPersonComponent', {
     controller: StarWarsPersonController,
     controllerAs: 'starWarsPersonCtrl',
     bindings: {
+        person: '<'
     }
 });
 

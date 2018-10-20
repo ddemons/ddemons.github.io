@@ -1,8 +1,8 @@
 app.factory('starWarsApiService', function($http){
 
 
-    var getStarWarsPeople = function(id) {
-        return $http.get('https://swapi.co/api/people').then(function(response){
+    var getStarWarsPeople = function(pageNum) {
+        return $http.get('https://swapi.co/api/people/?page=' + pageNum ,{cache: true}).then(function(response){
             return response.data;
         });
     };
