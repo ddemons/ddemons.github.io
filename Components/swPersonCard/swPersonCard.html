@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+
+        Name
+        <span ng-bind="swPersonCardCtrl.person.name"></span>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+        Gender:
+        <span ng-bind="swPersonCardCtrl.person.gender"></span>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        Birth Year:
+        <span ng-bind="swPersonCardCtrl.person.birth_year"></span>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+
+        {{swPersonCardCtrl.person.birth_year}}
+    </div>
+
+    <!--<span ng-repeat="film in vm.item.films">-->
+                        <!--<tag config="{type:'films', field:'title'}" url="film"></tag>-->
+                        <!--<span ng-if="!$last">,</span>-->
+                    <!--</span>-->
+
+
+    <div class="col-xs-12 col-sm-6">
+        <button type="button" class="btn btn-block btn-primary">expand</button>
+    </div>
+</div>

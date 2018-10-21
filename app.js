@@ -9,18 +9,31 @@ app.config(function ($httpProvider, $stateProvider, $urlServiceProvider) {
         abstract: true
     })
         .state('sw.people', {
-         url: '/people/{pageNum:int}',
-        component: 'swPeopleComponent',
-        resolve: {
-            swPeopleList: function (starWarsApiService, $stateParams, $q) {
-                if ($stateParams.pageNum) {
-                    return starWarsApiService.getStarWarsPeople($stateParams.pageNum)
-                } else {
-                    return starWarsApiService.getStarWarsPeople(1)
+            url: '/people/{pageNum:int}',
+            component: 'swPeopleComponent',
+            resolve: {
+                swPeopleList: function (starWarsApiService, $stateParams, $q) {
+                    if ($stateParams.pageNum) {
+                        return starWarsApiService.getStarWarsPeople($stateParams.pageNum)
+                    } else {
+                        return starWarsApiService.getStarWarsPeople(1)
+                    }
                 }
             }
-        }
-    })
+        })
+        .state('sw.person', {
+            url: '/person/{id:int}',
+            component: 'swPersonComponent',
+            resolve: {
+                swPeopleList: function (starWarsApiService, $stateParams, $q) {
+                    if ($stateParams.object) {
+                        return starWarsApiService.getStarWarsPeople($stateParams.pageNum)
+                    } else {
+                        return starWarsApiService.getStarWarsPeople(1)
+                    }
+                }
+            }
+        })
 });
 
 // .state('index', {
