@@ -1,0 +1,17 @@
+<nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm justify-content-center">
+        <li ng-class="{'disabled': !paginationCtrl.previous}" class="page-item"><a class="page-link"
+                                                                                   ng-href="{{paginationCtrl.pageState(paginationCtrl.prevPageParam)}}">Previous</a>
+        </li>
+
+        <div class="d-none d-sm-block" ng-repeat="page in paginationCtrl.arbitraryPageArray ">
+            <li class="xs-hidden page-item"><a ui-sref-active="active" class="page-link" ng-href="{{paginationCtrl.pageState(page.pagenumber)}}"
+                                               ng-bind="page.pagenumber"></a>
+            </li>
+        </div>
+
+        <li ng-class="{'disabled': !paginationCtrl.next}" class="page-item">
+            <a class="page-link" ng-href="{{paginationCtrl.pageState(paginationCtrl.nextPageParam)}}">Next</a>
+        </li>
+    </ul>
+</nav>
