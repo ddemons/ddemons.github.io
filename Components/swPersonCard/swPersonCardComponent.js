@@ -11,16 +11,10 @@ function swPersonCardController(starWarsApiService) {
     var swPersonCardCtrl = this;
 
     swPersonCardCtrl.$onInit = function () {
+        swPersonCardCtrl.id = parseInt(swPersonCardCtrl.person.url.match(/\d+/));
         console.log(swPersonCardCtrl.person);
 
     };
 
-
-    // starWarsPersonCtrl.executeNestedApi = function () {
-    //     starWarsPersonCtrl.person.films.forEach()
-    //     starWarsApiService.getThing()
-    //     }
-    //
-    // };
 
 }

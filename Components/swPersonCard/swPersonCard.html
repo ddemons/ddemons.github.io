@@ -1,31 +1,26 @@
-<div class="row">
-    <div class="col-xs-12 col-sm-6">
+<div class="card">
+    <div class="row card-body">
+        <div class="col-xs-12 col-sm-6">
+            <h5 class="card-title" ng-bind="swPersonCardCtrl.person.name"></h5>
+        </div>
 
-        Name
-        <span ng-bind="swPersonCardCtrl.person.name"></span>
+        <div class="col-xs-12 col-sm-6">
+            <span class="title">Gender:</span>
+            <span ng-bind="swPersonCardCtrl.person.gender"></span>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <span class="title">Birth Year:</span>
+            <span ng-bind="swPersonCardCtrl.person.birth_year"></span>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <span class="title">Eye Color:</span>
+            <span ng-bind="swPersonCardCtrl.person.eye_color"></span>
+        </div>
 
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-        Gender:
-        <span ng-bind="swPersonCardCtrl.person.gender"></span>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        Birth Year:
-        <span ng-bind="swPersonCardCtrl.person.birth_year"></span>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-
-        {{swPersonCardCtrl.person.birth_year}}
-    </div>
-
-    <!--<span ng-repeat="film in vm.item.films">-->
-                        <!--<tag config="{type:'films', field:'title'}" url="film"></tag>-->
-                        <!--<span ng-if="!$last">,</span>-->
-                    <!--</span>-->
-
-
-    <div class="col-xs-12 col-sm-6">
-        <button type="button" class="btn btn-block btn-primary">expand</button>
+        <div class="col-xs-12 col-sm-6">
+            <a ui-sref="sw.person({id:swPersonCardCtrl.id, personObj: swPersonCardCtrl.person})">
+                <button type="button" class="btn btn-block btn-primary">More Details</button>
+            </a>
+        </div>
     </div>
 </div>
