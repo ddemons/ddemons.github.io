@@ -1,6 +1,19 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router','ngAnimate', 'ngSanitize', 'ngToast']);
 
-app.config(function ($httpProvider, $stateProvider, $urlServiceProvider) {
+
+app.run(function($transitions) {
+    $transitions.onStart({ }, function(trans) {
+        var ToastService = trans.injector().get('toastService');
+        ToastService.startToast();
+        trans.promise.finally(ToastService.endToast());
+    });
+});
+
+
+app.config(function ($httpProvider, $stateProvider, $urlServiceProvider ,ngToastProvider) {
+
+    $httpProvider.interceptors.push('errorInterceptor');
+
     $httpProvider.defaults.paramSerializer = '$httpParamSerializerJQLike';
     $urlServiceProvider.rules.otherwise('/sw/people/1');
     $stateProvider.state('sw', {
@@ -11,6 +24,9 @@ app.config(function ($httpProvider, $stateProvider, $urlServiceProvider) {
         .state('sw.people', {
             url: '/people/{pageNum:int}',
             component: 'swPeopleComponent',
+            params: {
+                pageNum: null
+            },
             resolve: {
                 swPeopleList: function (starWarsApiService, $stateParams, $q) {
                     if ($stateParams.pageNum) {
@@ -23,39 +39,45 @@ app.config(function ($httpProvider, $stateProvider, $urlServiceProvider) {
         })
         .state('sw.person', {
             url: '/person/{id:int}',
-            component: 'swPersonComponent',
+            component: 'swPersonExpandedComponent',
+            params: {
+                personObj: null
+            },
             resolve: {
-                swPeopleList: function (starWarsApiService, $stateParams, $q) {
-                    if ($stateParams.object) {
-                        return starWarsApiService.getStarWarsPeople($stateParams.pageNum)
+                personObj: function (starWarsApiService, $stateParams, $q) {
+                    if ($stateParams.personObj) {
+                        return $q.resolve($stateParams.personObj);
                     } else {
-                        return starWarsApiService.getStarWarsPeople(1)
+                        return starWarsApiService.getStarWarsIndividualPerson($stateParams.id)
                     }
                 }
             }
         })
-});
 
-// .state('index', {
-//     abstract: true,
-//     component: 'indexComponent',
-//     resolve: {
-//         currentUser: function (usersService) {
-//             return usersService.getUser();
-//         }
-//     }
-// })
-//     .state('index.splashPage', {
-//         url: '/landing',
-//         component: 'splashPageComponent',
-//         resolve: {
-//             oustandingRequest: function (currentUser, permissionsService) {
-//                 if (!currentUser.outstanding_request) {
-//                     return permissionsService.targetAvailableState();
-//                 } else {
-//                     return currentUser.outstanding_request;
-//                 }
-//             }
-//         }
-//     })
-//
+        // .state('sw.starships', {
+        //     url: '/starships/{pageNum:int}',
+        //     component: 'swShipsComponent',
+        //     resolve: {
+        //         swShipsList: function (starWarsApiService, $stateParams, $q) {
+        //             if ($stateParams.pageNum) {
+        //                 return starWarsApiService.getStarWarsShips($stateParams.pageNum)
+        //             } else {
+        //                 return starWarsApiService.getStarWarsShips(1)
+        //             }
+        //         }
+        //     }
+        // })
+        // .state('sw.starship', {
+        //     url: '/starships/{id:int}',
+        //     component: 'swPersonExpandedComponent',
+        //     resolve: {
+        //         personObj: function (starWarsApiService, $stateParams, $q) {
+        //             if ($stateParams.personObj) {
+        //                 return $q.resolve($stateParams.personObj);
+        //             } else {
+        //                 return starWarsApiService.getStarWarsIndividualPerson($stateParams.id)
+        //             }
+        //         }
+        //     }
+        // })
+});
