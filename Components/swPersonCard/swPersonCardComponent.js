@@ -12,7 +12,7 @@ function swPersonCardController(starWarsApiService) {
 
     swPersonCardCtrl.$onInit = function () {
         swPersonCardCtrl.id = parseInt(swPersonCardCtrl.person.url.match(/\d+/));
-        console.log(swPersonCardCtrl.person);
+        //console.log(swPersonCardCtrl.person);
 
     };
 

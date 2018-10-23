@@ -1,59 +1,25 @@
 
 <div class="container">
 
-
-
-
-    <div class="board-container">
-        <nav class="navbar" role="navigation">
-            <ul class="nav text-left">
-                <li><a ui-sref="sw.people"
-                       class="h5" aria-label="People"
+        <nav class="navbar sticky-top navbar-light bg-light" role="navigation">
+            <ul class="navbar-nav   ">
+                <li class="nav-item"><a ui-sref="sw.people"
+                       class="h5 nav-link" aria-label="People"
                        ui-sref-active="active">People</a></li>
-                <li><a ui-sref=".planets"
-                       class="h5" aria-label="Planets"
+                <li class="nav-item"><a ui-sref=".planets"
+                       class="h5 nav-link" aria-label="Planets"
                        ui-sref-active="active">Planets</a></li>
-                <li><a ui-sref=".ships"
-                       class="h5" aria-label="Ships"
-                       ui-sref-active="active">Ships</a></li>
-                <!--<li class="pull-right">-->
-                <!--<p class="navbar-btn" ng-if="!userManagementCtrl.onGroups()">-->
-                <!--<a aria-label="Invite-Users" ng-href="{{userManagementCtrl.inviteUserState()}}"-->
-                <!--class="btn button-2 hidden-xs">-->
-                <!--Invite Users-->
-                <!--</a>-->
-                <!--</p>-->
-                <!--<p class="navbar-btn" ng-if="userManagementCtrl.onGroups()">-->
-                <!--<a aria-label="Create Group"-->
-                <!--class="btn small-button-2 hidden-xs" ng-href="{{userManagementCtrl.createGroupState()}}">-->
-                <!--Create Group-->
-                <!--</a>-->
-                <!--</p>-->
-                <!--</li>-->
-                <!--<div>-->
-                <!--<p class="navbar-btn " ng-if="!userManagementCtrl.onGroups()">-->
-                <!--<a aria-label="Invite-Users" ng-href="{{userManagementCtrl.inviteUserState()}}"-->
-                <!--class="btn btn-block small-button-2 hidden-sm hidden-md hidden-lg">-->
-                <!--Invite Users-->
-                <!--</a>-->
-                <!--</p>-->
-                <!--</div>-->
-
-                <!--<div>-->
-                <!--<p class="navbar-btn" ng-if="userManagementCtrl.onGroups()">-->
-                <!--<a aria-label="Create Group" ng-href="{{userManagementCtrl.createGroupState()}}"-->
-                <!--class="btn btn-block small-button-2 hidden-sm hidden-md hidden-lg">-->
-                <!--Create Group-->
-                <!--</a>-->
-                <!--</p>-->
-                <!--</div>-->
-
+                <!--<li class="nav-item"><a ui-sref=".ships"-->
+                       <!--class="h5 nav-link" aria-label="Ships"-->
+                       <!--ui-sref-active="active">Ships</a></li>-->
             </ul>
-        </nav>
-        <ui-view></ui-view>
-        <!--<div ng-repeat="person in starWarsDisplayBoardCtrl.results">-->
-            <!--<star-wars-person-component person="person"></star-wars-person-component>-->
 
-        <!--</div>-->
+            <toast></toast>
+
+        </nav>
+    <div class="board-container card">
+
+        <ui-view></ui-view>
+
     </div>
 </div>
