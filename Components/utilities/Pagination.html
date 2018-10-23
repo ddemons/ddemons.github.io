@@ -5,7 +5,7 @@
         </li>
 
         <div class="d-none d-sm-block" ng-repeat="page in paginationCtrl.arbitraryPageArray ">
-            <li class="xs-hidden page-item"><a ui-sref-active="active" class="page-link" ng-href="{{paginationCtrl.pageState(page.pagenumber)}}"
+            <li class="xs-hidden page-item"><a ng-class="{'active': isStateActive(paginationCtrl.pageState(page.pagenumber))}" class="page-link" ng-href="{{paginationCtrl.pageState(page.pagenumber)}}"
                                                ng-bind="page.pagenumber"></a>
             </li>
         </div>

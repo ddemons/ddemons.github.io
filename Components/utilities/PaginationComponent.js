@@ -5,8 +5,7 @@ app.component('paginationComponent', {
     bindings: {
         previous: '<',
         next: '<',
-        count: '<',
-        uri: '<'
+        count: '<'
     }
 });
 
@@ -32,18 +31,25 @@ function paginationController($state) {
     };
 
     paginationCtrl.generateArbitraryPagination = function (count) {
-        paginationCtrl.numberOfPages = Math.ceil(count/10); //round up number of pages
+        paginationCtrl.numberOfPages = Math.ceil(count / 10); //round up number of pages
         paginationCtrl.arbitraryPageArray = []; //create array for page list
-        for(var i = 0; i < paginationCtrl.numberOfPages; i++) {
-            paginationCtrl.arbitraryPageArray.push ({
-                pagenumber : i+1
+        for (var i = 0; i < paginationCtrl.numberOfPages; i++) {
+            paginationCtrl.arbitraryPageArray.push({
+                pagenumber: i + 1
             })
         }
     };
 
+
+    paginationCtrl.isStateActive = function (pageNum) {
+        //console.log($state.includes(paginationCtrl.pageState(pageNum)));
+
+        return $state.is(paginationCtrl.pageState(pageNum));
+    };
+
     paginationCtrl.pageState = function (pageNum) {
-        console.log($state.href($state.$current.name,{pageNum:pageNum}));
-        return $state.href($state.$current.name,{pageNum:pageNum});
+        //console.log($state.href($state.$current.name,{pageNum:pageNum}));
+        return $state.href($state.$current.name, {pageNum: pageNum});
     };
 
 
