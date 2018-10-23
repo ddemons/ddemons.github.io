@@ -15,8 +15,6 @@ function paginationController($state) {
     paginationCtrl.$onInit = function () {
 
         paginationCtrl.generateArbitraryPagination(paginationCtrl.count);
-
-
         paginationCtrl.prevPageParam = paginationCtrl.slicePageNum(paginationCtrl.previous);
         paginationCtrl.nextPageParam = paginationCtrl.slicePageNum(paginationCtrl.next);
     };
