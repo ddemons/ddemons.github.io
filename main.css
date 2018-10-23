@@ -1,20 +1,37 @@
 
 body {
-  background-color: #eef1f0;
-
+  /*background-color: #eef1f0;*/
+  background-image: url("Assets/stars.jpg");
   font-size: 16px;
   line-height: 1.5;
-  /*text-align: center;*/
+}
+
+nav {
+    margin-top: 20px;
+}
+
+
+a.active {
+    color: #ff0000 !important;
 }
 
 .board-container{
-  margin-top:40px;
-  background-color: #ffffff;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-a.active {
-  color: #ff0000;
+
+.title{
+    font-weight: bold;
 }
+
+.back-button{
+    margin-top: 20px;
+}
+
+
+
+
+
