@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6">
+                <h5 class="card-title" ng-bind="swPersonExpandedCtrl.personObj.name"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                Gender:
+                <span ng-bind="swPersonExpandedCtrl.personObj.gender"></span>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                Birth Year:
+                <span ng-bind="swPersonExpandedCtrl.personObj.birth_year"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                Height:
+                <span ng-bind="swPersonExpandedCtrl.personObj.height"></span>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                Mass:
+                <span ng-bind="swPersonExpandedCtrl.personObj.mass"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                Films:
+            </div>
+            <div class="col-sm-6">
+                <div ng-repeat="film in swPersonExpandedCtrl.films">
+                    <span ng-bind="film.title"></span>
+                    <span ng-if="!$last">, </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                Starships:
+            </div>
+            <div class="col-sm-6">
+                <div ng-repeat="starship in swPersonExpandedCtrl.starships">
+                    <span ng-bind="starship.name"></span>
+                    <span ng-if="!$last">, </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row back-button">
+            <div class="col-sm-12">
+                <a ui-sref="sw.people({pageNum:1})">
+                    <button type="button" class="btn btn-block btn-primary">Back to People</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
